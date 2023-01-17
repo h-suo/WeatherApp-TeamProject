@@ -1387,14 +1387,14 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="지역" id="c8H-wH-ZrG">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="LAm-gQ-E0f">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="LAm-gQ-E0f">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ZfI-AG-8Rg">
-                                                <rect key="frame" x="20" y="10.5" width="54" height="35"/>
+                                                <rect key="frame" x="340" y="10.5" width="54" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="선택">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" systemColor="tintColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="selectButtonTapped:" destination="1sa-l0-REl" eventType="touchUpInside" id="NB4-Xf-j9B"/>
@@ -1448,14 +1448,14 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="날짜" id="67M-SE-7pD">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="LGG-p9-k6f">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="LGG-p9-k6f">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="fsY-Wt-Ovo">
-                                                <rect key="frame" x="20" y="10.5" width="54" height="35"/>
+                                                <rect key="frame" x="340" y="10.5" width="54" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="선택">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" systemColor="tintColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="selectButtonTapped:" destination="1Ph-NK-gqh" eventType="touchUpInside" id="muY-ZP-Jfk"/>
