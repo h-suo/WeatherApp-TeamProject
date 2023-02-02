@@ -70,7 +70,11 @@ class CustomPageViewController: UIPageViewController, UIPageViewControllerDelega
             //userDefault에 저장
             if var defaultMapItemArray = UserDefaults.standard.array(forKey: "key") as? [[String]] {
                 defaultMapItemArray.append(mapItemArray)
-                UserDefaults.standard.set(defaultMapItemArray, forKey: "key")
+                UserDefaults.standard.setValue(defaultMapItemArray, forKey: "key")
+            } else {
+                var defaultMapItemArray: [[String]] = []
+                defaultMapItemArray.append(mapItemArray)
+                UserDefaults.standard.setValue(defaultMapItemArray, forKey: "key")
             }
             //현재 인덱스 업데이트
             currentIndex = 1
@@ -84,7 +88,7 @@ class CustomPageViewController: UIPageViewController, UIPageViewControllerDelega
             //default부분 삭제
             if var defaultMapItemArray = UserDefaults.standard.array(forKey: "key") as? [[String]] {
                 defaultMapItemArray.remove(at: currentIndex - 2)
-                UserDefaults.standard.set(defaultMapItemArray, forKey: "key")
+                UserDefaults.standard.setValue(defaultMapItemArray, forKey: "key")
             }
             //현재 인덱스 업데이트
             currentIndex = 1
