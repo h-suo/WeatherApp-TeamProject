@@ -59,22 +59,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         weekWeatherTableView.dataSource = self
         
         //위치 매니저 생성 및 설정
-        var locationManager = CLLocationManager()
+        let locationManager = CLLocationManager()
         // 델리게이트를 설정하고,
         locationManager.delegate = self
-        // 거리 정확도
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        // 위치 사용 허용 알림
-        locationManager.requestWhenInUseAuthorization()
-        DispatchQueue.global().async {
-            // 위치 사용을 허용하면 현재 위치 정보를 가져옴
-            if CLLocationManager.locationServicesEnabled() {
-                locationManager.startUpdatingLocation()
-                self.myLocation = CLLocation(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
-            }
-            else {
-                print("위치 서비스 허용 꺼짐")
-            }
+        
+        switch locationManager.authorizationStatus {
+        case .notDetermined, .restricted:
+            locationManager.requestWhenInUseAuthorization()
+        case .denied:
+            print("위치 서비스 허용 꺼짐")
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+            self.myLocation = CLLocation(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
+        @unknown default:
+            break
         }
         
         let formatter = DateFormatter()

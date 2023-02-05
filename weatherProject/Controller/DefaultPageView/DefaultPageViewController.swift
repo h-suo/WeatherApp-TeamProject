@@ -72,20 +72,22 @@ class DefaultPageViewController: UIViewController, CLLocationManagerDelegate {
         //위치 매니저 생성 및 설정
         let locationManager = CLLocationManager()
         locationManager.delegate = self
-        //위치 정확도
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //현재위치 받아오기
-        DispatchQueue.global().async {
-            // 위치 사용을 허용하면 현재 위치 정보를 가져옴
-            if CLLocationManager.locationServicesEnabled() {
-                locationManager.startUpdatingLocation()
-                self.myLocation = CLLocation(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
-                self.location = "나의 위치"
-            }
-            else {
-                self.location = "서울"
-            }
+        
+        switch locationManager.authorizationStatus {
+        case .notDetermined, .restricted:
+            locationManager.requestWhenInUseAuthorization()
+        case .denied:
+            print("위치 서비스 허용 꺼짐")
+            self.location = "서울"
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+            self.myLocation = CLLocation(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!)
+            self.location = "나의 위치"
+        @unknown default:
+            break
         }
+
         //weatherkit 사용
         let weatherService = WeatherService.shared
         
