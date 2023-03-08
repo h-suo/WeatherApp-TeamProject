@@ -7,3 +7,6 @@
 - pageController를 이용해 추가한 지역을 사용자가 쉽게 볼 수 있도록 구현.
 - OpenApi를 이용한 작년 평균온도 기능 구현.
 - UserDefault를 이용해 추가한 지역을 저장하는 기능 구현.
+
+### 개발 블로그 링크
+https://velog.io/@h_suo/Swift-지구온도계-프로젝트1
